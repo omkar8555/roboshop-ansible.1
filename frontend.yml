@@ -1,5 +1,5 @@
 - name:  frontend playbook
-  hosts: all
+  hosts: local host
   become: yes
   tasks:
     - name: Disable Default Nginx
