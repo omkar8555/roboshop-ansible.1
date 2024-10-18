@@ -1,5 +1,5 @@
-- name:  roboshop app playbook
+- name:  Roboshop App playbook
   hosts: a11
   become: yes
   tasks:
-    - "{{ app_name }}"
+    -  "{{ app_name }}"
