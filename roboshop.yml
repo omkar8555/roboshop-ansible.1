@@ -1,5 +1,5 @@
 - name:  Roboshop App playbook
-  hosts: all
+  hosts:  all
 
   become: yes
   roles:
