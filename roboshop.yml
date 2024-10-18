@@ -1,5 +1,5 @@
 - name:  Roboshop App playbook
   hosts: a11
   become: yes
-  tasks:
+  roles:
     -  "{{ app_name }}"
