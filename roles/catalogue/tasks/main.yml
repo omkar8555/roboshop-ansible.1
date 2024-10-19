@@ -19,7 +19,7 @@
     state: installed
 
 - name: Load Master Data
-  ansible.builtin.shell: mongosh --host mongodb-{{ env }}.rdevopsb81.online </app/db/master-data.js
+  ansible.builtin.shell: mongosh --host mongodb-{{ env }}.rdevopsb72.shop </app/db/master-data.js
 
 - name: Restart Catalogue Service
   ansible.builtin.systemd_service:
