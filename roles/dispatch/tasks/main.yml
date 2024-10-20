@@ -5,5 +5,5 @@
 - name: Load golang
   ansible.builtin.include_role:
     name: common
-    tasks_from: golang_setup
+    tasks_from: golang
 
