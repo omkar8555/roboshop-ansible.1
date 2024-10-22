@@ -1,4 +1,4 @@
-- name: load nodejs
-  ansible_builtin.include_role:
+- name: Load NodeJS
+  ansible.builtin.include_role:
     name: common
-    src: nodejs
+    tasks_from: nodejs
