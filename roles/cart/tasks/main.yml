@@ -1,4 +1,4 @@
 - name: load nodejs
-  ansible_builtin.load_role:
+  ansible_builtin.include_role:
     name: common
     src: nodejs
