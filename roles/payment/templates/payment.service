@@ -4,13 +4,13 @@ Description=Payment Service
 [Service]
 User=root
 WorkingDirectory=/app
-Environment=CART_HOST=cart-{{ env }}.rdevopsb72.shop
-Environment=CART_PORT=8080
-Environment=USER_HOST=user-{{ env }}.rdevopsb72.shop
-Environment=USER_PORT=8080
-Environment=AMQP_HOST=rabbitmq-{{ env }}.rdevopsb72.shop
-Environment=AMQP_USER=roboshop
-Environment=AMQP_PASS=roboshop123
+Environment=CART_HOST= location /api/catalogue/ { proxy_pass {{ lookup('hashi_vault', 'roboshop-dev/data/payment:CART_HOST token={{ vault_token }} url=http://vault-internal.rdevopsb72.shop:8200')}}; }
+Environment=CART_PORT=location /api/catalogue/ { proxy_pass {{ lookup('hashi_vault', 'roboshop-dev/data/payment:CART_PORT token={{ vault_token }} url=http://vault-internal.rdevopsb72.shop:8200')}}; }
+Environment=USER_HOST=location /api/catalogue/ { proxy_pass {{ lookup('hashi_vault', 'roboshop-dev/data/payment:USER_HOST token={{ vault_token }} url=http://vault-internal.rdevopsb72.shop:8200')}}; }
+Environment=USER_PORT=location /api/catalogue/ { proxy_pass {{ lookup('hashi_vault', 'roboshop-dev/data/payment:USER_PORT token={{ vault_token }} url=http://vault-internal.rdevopsb72.shop:8200')}}; }
+Environment=AMQP_HOST=location /api/catalogue/ { proxy_pass {{ lookup('hashi_vault', 'roboshop-dev/data/payment:AMQP_HOST token={{ vault_token }} url=http://vault-internal.rdevopsb72.shop:8200')}}; }
+Environment=AMQP_USER=location /api/catalogue/ { proxy_pass {{ lookup('hashi_vault', 'roboshop-dev/data/payment:AMQP_USER token={{ vault_token }} url=http://vault-internal.rdevopsb72.shop:8200')}}; }
+Environment=AMQP_PASS=location /api/catalogue/ { proxy_pass {{ lookup('hashi_vault', 'roboshop-dev/data/payment:AMQP_PASS token={{ vault_token }} url=http://vault-internal.rdevopsb72.shop:8200')}}; }
 
 ExecStart=/usr/local/bin/uwsgi --ini payment.ini
 ExecStop=/bin/kill -9 $MAINPID

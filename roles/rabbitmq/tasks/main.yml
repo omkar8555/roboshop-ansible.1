@@ -16,8 +16,10 @@
 
 - name: Add application user
   community.rabbitmq.rabbitmq_user:
-    user: roboshop
-    password: roboshop123
+    user:  "location /api/catalogue/ { proxy_pass {{ lookup('hashi_vault', 'roboshop-{{env}}/data/rabbitmq:user token={{ vault_token }} url=http://vault-internal.rdevopsb72.shop:8200')}}; }"
+
+    password:  "location /api/catalogue/ { proxy_pass {{ lookup('hashi_vault', 'roboshop-{{env}}/data/rabbitmq:password token={{ vault_token }} url=http://vault-internal.rdevopsb72.shop:8200')}}; }"
+
     vhost: /
     configure_priv: .*
     read_priv: .*
